@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mongo-db-secret
+  namespace: app
+type: Opaque
+data:
+  username: YWRtaW4=         #admin
+  password: cGFzc3dvcmQxMjM= #password123
