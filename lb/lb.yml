@@ -4,13 +4,12 @@ metadata:
   name: mainlb
   namespace: app
   annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
-  ingressClassName: alb
+  ingressClassName: nginx # Ensure this matches your Ingress class
   rules:
-    - host: 
+    - host: ""
       http:
         paths:
           - path: /backend
